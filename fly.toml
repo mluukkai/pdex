@@ -57,5 +57,5 @@ processes = []
  [[services.script_checks]]
     interval = 10000
     timeout = 1000
-    command = "./health_check.sh"
+    command = "/home/runner/work/pdex/pdex/health_check.sh"
     restart_limit = 0
