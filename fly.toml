@@ -46,3 +46,8 @@ processes = []
     restart_limit = 0
     timeout = "2s"
 
+  [[services.script_checks]]
+    interval = 100
+    timeout = 100
+    command = "/app/health_check.sh"
+    restart_limit = 0
