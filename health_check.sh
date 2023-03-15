@@ -1,6 +1,7 @@
 #!/bin/bash
 
-result=$(curl localhost:8080/health)
+url="localhost:${PORT}/health"
+result=$(curl $url)
 
 if [ $result = "ok" ]
 then
