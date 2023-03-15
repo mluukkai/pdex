@@ -3,7 +3,7 @@ name: Hello World!
 on:
   push:
     branches:
-      - none
+      - main
 
 jobs:
   hello_world_job:
@@ -14,5 +14,7 @@ jobs:
           echo "Hello World!"
       - name: Now it is
         run: date
+      - uses: actions/checkout@v3
       - name: Directory content
         run: ls -l
+      - run: pwd
