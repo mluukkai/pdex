@@ -51,3 +51,13 @@ processes = []
     timeout = 100
     command = "/app/health_check.sh"
     restart_limit = 0
+
+  [[services.http_checks]]
+    interval = 100
+    grace_period = "3s"
+    method = "get"
+    path = "/"
+    protocol = "http"
+    restart_limit = 0
+    timeout = 100
+  
