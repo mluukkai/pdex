@@ -26,7 +26,7 @@ jobs:
         run: echo "$COMMIT_MESSAGES"
       - name: commit messages
         env:
-          COMMIT_MESSAGES: ${{ contains(join(github.event.commits.*.message, ', ') '#skip')}}
+          COMMIT_MESSAGES: ${{ contains(join(github.event.commits.*.message, ', '#skip'))}}
         run: echo "$JOINED_COMMIT_MESSAGES"
 
       - name: Bump version and push tag
