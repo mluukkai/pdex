@@ -24,11 +24,14 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
-      - name: commit messages
+      - name: joined commit messages
         env:
-          COMMIT_MESSAGES: ${{ contains(join(github.event.commits.*.message, ', '#skip'))}}
-        run: echo "$JOINED_COMMIT_MESSAGES"
-
+          COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
+        run: echo "$COMMIT_MESSAGES"
+      - name: skip in commit messages
+        env:
+          COMMIT_MESSAGES: ${{ contains( join(github.event.commits.*.message, ', '), '#skip' ) }}
+        run: echo "$COMMIT_MESSAGES"
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.61.0
         env:
