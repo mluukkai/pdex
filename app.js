@@ -7,7 +7,7 @@ app.get('/health', (req, res) => {
   res.send('ok')
 })
 
-app.get('/version', (req, res) => {
+app.get('/version2', (req, res) => {
   res.send('14')
 })
 
