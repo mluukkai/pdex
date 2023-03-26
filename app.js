@@ -7,8 +7,12 @@ app.get('/health', (req, res) => {
   res.send('ok')
 })
 
+app.get('/health2', (req, res) => {
+  res.send('ok')
+})
+
 app.get('/version', (req, res) => {
-  res.send('21')
+  res.send('22')
 })
 
 app.use(express.static('dist'))
