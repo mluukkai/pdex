@@ -3,25 +3,14 @@ name: Pipeline test
 on:
   push:
     branches:
-      - skip
+      - main
 
 jobs:
   pipeline_test:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - run: exit 0
-      - name: Test Success
-        uses: rjstone/discord-webhook-notify@v1
-        if: success()
+      - uses: johnbeynon/render-deploy-action
         with:
-          severity: info
-          details: Test Succeeded!
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-      - name: Test Failure
-        uses: rjstone/discord-webhook-notify@v1
-        if: failure()
-        with:
-          severity: error
-          details: Test Failed!
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
