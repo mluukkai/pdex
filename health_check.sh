@@ -6,7 +6,7 @@ result=$(curl $url)
 if [ $result = "ok" ]
 then
    echo "healthy!"
-   exit 0
+   exit 1
 else
   echo "problems"
   exit 1
