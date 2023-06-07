@@ -14,7 +14,7 @@ app.get('/health2', (req, res) => {
 })
 
 app.get('/version', (req, res) => {
-  res.send('23')
+  res.send('24')
 })
 
 app.use(express.static('dist'))

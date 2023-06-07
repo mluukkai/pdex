@@ -3,7 +3,7 @@ name: Pipeline test
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   pipeline_test:
